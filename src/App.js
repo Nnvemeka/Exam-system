@@ -1,6 +1,9 @@
+import Layout from "./layout/Layout";
+import './app.css'
+
 function App() {
   return (
-    <h1>Exam System!</h1>
+    <Layout />
   );
 }
 

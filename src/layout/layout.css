@@ -1,0 +1,29 @@
+.layout {
+    height: 100vh;
+    text-align: center;
+    font-size: 24px;
+
+    display: grid;
+    grid-template-columns: 25rem 1fr;
+    grid-template-rows: 8rem 1fr;
+}
+
+.header {
+    background-color: lime;
+    grid-column: 1 / -1;
+}
+
+.nav {
+    background-color: lime;
+
+}
+
+.menu {
+    grid-column: 2 / -1;
+    background-color: #fff;
+}
+
+.footer {
+    grid-column: 1 / -1;
+    background-color: lime;
+}
