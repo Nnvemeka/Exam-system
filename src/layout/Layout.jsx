@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/header/Header'
 import Nav from '../components/nav/Nav'
+import Footer from '../components/footer/Footer'
 import './layout.css'
 
 const layout = () => {
@@ -13,7 +14,9 @@ const layout = () => {
                 <Nav />
             </div>
             <div className='main-container'>Main</div>
-            <div className='footer-container'>footer</div>
+            <div className='footer-container'>
+                <Footer />
+            </div>
         </div>
     )
 }
