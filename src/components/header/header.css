@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem;
+}
+
+.logo {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.headerItems {
+    display: flex;
+    gap: 2rem;
+}
