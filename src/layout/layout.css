@@ -8,22 +8,23 @@
     grid-template-rows: 8rem 1fr;
 }
 
-.header {
-    background-color: lime;
+.header-container {
     grid-column: 1 / -1;
+    border-bottom: 1px solid #eee;
+    /* align-self: center; */
+    /* justify-self: center; */
 }
 
-.nav {
-    background-color: lime;
-
+.nav-container {
+    border-right: 1px solid #eee;
 }
 
-.menu {
+.menu-container {
     grid-column: 2 / -1;
     background-color: #fff;
 }
 
-.footer {
+.footer-container {
     grid-column: 1 / -1;
-    background-color: lime;
+    border-top: 1px solid #eee;
 }
