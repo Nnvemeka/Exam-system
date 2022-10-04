@@ -1,7 +1,22 @@
 .nav {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    padding: 2rem;
+    gap: 1.2rem;
     margin-top: 4rem;
+}
+
+.nav-item {
+    display: flex;
+    gap: 2rem;
+    padding: 1.4rem 0 2rem 3rem;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    color: limegreen;
+}
+
+.nav-title {
+    color: #666;
 }

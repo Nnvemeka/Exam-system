@@ -1,5 +1,7 @@
 .footer {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
+    padding: 1.4rem;
+    letter-spacing: 0.7px;
     color: #999;
 }

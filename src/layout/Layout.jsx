@@ -13,7 +13,7 @@ const layout = () => {
             <div className='nav-container'>
                 <Nav />
             </div>
-            <div className='main-container'>Main</div>
+            <div className='main-container'></div>
             <div className='footer-container'>
                 <Footer />
             </div>
