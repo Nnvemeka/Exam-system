@@ -1,16 +1,28 @@
 .card {
-    box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.07);
+    box-shadow: 0 2.4rem 4rem rgba(0, 0, 0, 0.075);
     border-radius: 12px;
     width: 80%;
+    transition: all 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-1.2rem);
+    box-shadow: 0 3.2rem 6rem rgba(0, 0, 0, 0.06);
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
 }
 
 .card-box {
     padding: 3rem;
-    text-align: center;
+    text-align: start;
 }
 
 .card-header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 2rem;
 }
@@ -20,6 +32,17 @@
 }
 
 .card-details {
-    font-size: 2rem;
-    
+    font-size: 2rem; 
+}
+
+.card-header p {
+    padding: 1.2rem;
+    border-radius: 50%;
+    background-color: rgb(215, 247, 215);
+}
+
+.card-icon {
+    width: 20px;
+    height: 20px;
+    color: limegreen;
 }
