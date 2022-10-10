@@ -1,16 +1,32 @@
 .header {
     display: flex;
     justify-content: space-between;
-    padding: 3rem;
+    padding: 2.8rem;
 }
 
 .logo {
     text-transform: uppercase;
     font-weight: 600;
-    color: limegreen;
+    color: #69db7c;
 }
 
 .headerItems {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.avatar {
+    border: 1px solid #eee;
+    border-radius: 50%;
+}
+
+.header-img {
+    width: 4rem;
+    border-radius: 50%;
+}
+
+.header-title {
+    font-size: 1.8rem;
+    color: #999;
 }
