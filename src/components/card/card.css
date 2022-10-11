@@ -28,7 +28,7 @@
 }
 
 .card-header h4 {
-    color: #69db7c;
+    color: #40c057;
 }
 
 .card-details {
@@ -38,12 +38,11 @@
 .card-header p {
     padding: 1.2rem;
     border-radius: 50%;
-    /* background-color: rgb(215, 247, 215); */
     background-color: #ebfbee;
 }
 
 .card-icon {
     width: 20px;
     height: 20px;
-    color: #69db7c;
+    color: #40c057;
 }
