@@ -6,7 +6,7 @@ const Question = () => {
   return (
     <div className="questions">
       <Card
-        path="add-question"
+        path="add-questions"
         title="Add Question"
         icon={<ion-icon name="pencil-outline" class="card-icon"></ion-icon>}
         details="Create new question for a test"
