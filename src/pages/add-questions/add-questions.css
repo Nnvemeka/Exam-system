@@ -48,7 +48,7 @@
 
 .add-question-btn {
     width: 50%;
-    background-color: #40c057;
+    background-color: #b2f2bb;
     color: #555;
     padding: 1.2rem;
     border-radius: 9px;
@@ -58,6 +58,6 @@
 }
 
 .add-question-btn:hover {
-    background-color: rgb(146, 245, 162);
+    background-color: #8ce99a;
     color: #555;
 }

@@ -7,6 +7,7 @@ import Dashboard from '../pages/dashboard/Dashboard'
 import Question from '../pages/question/Question'
 import AddQuestions from '../pages/add-questions/Add-questions'
 import './layout.css'
+import QuestionBank from '../pages/question-bank/QuestionBank'
 
 const layout = () => {
     return (
@@ -22,10 +23,9 @@ const layout = () => {
                     <Route path='/' element={<Dashboard />} />
 
                     {/* Question related routes */}
-                    <Route path='/questions' element={<Question />}/>
-                    <Route path='/questions/add-questions' element={<AddQuestions />}/>
-                    
-                    <Route />
+                    <Route path='/questions' element={<Question />} />
+                    <Route path='/questions/add-questions' element={<AddQuestions />} />
+                    <Route path='/questions/question-bank' element={<QuestionBank />} />
                     <Route />
                     <Route />
                 </Routes>
