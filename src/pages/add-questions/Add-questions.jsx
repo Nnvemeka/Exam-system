@@ -21,12 +21,30 @@ const AddQuestions = () => {
                         <option value="fill-in-the-gap">Fill In The Gap</option>
                     </select>
 
-                    <input type="text" placeholder='Question' className='question-input' />
+                    <input type="text" placeholder='Question' className='question-input option-input' />
+
+                    <h6>Fill the options and check the correct answer</h6>
                     
-                    <input type="text" placeholder='Option1' />
-                    <input type="text" placeholder='Option2' />
-                    <input type="text" placeholder='Option3' />
-                    <input type="text" placeholder='Option4' />
+                    <div className='option-input--container'>
+                        <input type="checkbox" className='option-checkbox'/>
+                        <input type="text" placeholder='Option1' className='option-input'/>
+                    </div>
+
+                    <div className='option-input--container'>
+                        <input type="checkbox" className='option-checkbox'/>
+                        <input type="text" placeholder='Option2' className='option-input'/>
+                    </div>
+
+                    <div className='option-input--container'>
+                        <input type="checkbox" className='option-checkbox'/>
+                        <input type="text" placeholder='Option3' className='option-input'/>
+                    </div>
+
+                    <div className='option-input--container'>
+                        <input type="checkbox" className='option-checkbox'/>
+                        <input type="text" placeholder='Option4' className='option-input'/>
+                    </div>
+                    
 
                     <textarea name="instruction" id="" cols="30" rows="10" placeholder='Instructions'></textarea>
 
