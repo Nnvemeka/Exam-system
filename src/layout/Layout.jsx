@@ -8,6 +8,7 @@ import Question from '../pages/question/Question'
 import AddQuestions from '../pages/add-questions/Add-questions'
 import './layout.css'
 import QuestionBank from '../pages/question-bank/QuestionBank'
+import QuestionCategory from '../pages/question-category/QuestionCategory'
 
 const layout = () => {
     return (
@@ -26,7 +27,7 @@ const layout = () => {
                     <Route path='/questions' element={<Question />} />
                     <Route path='/questions/add-questions' element={<AddQuestions />} />
                     <Route path='/questions/question-bank' element={<QuestionBank />} />
-                    <Route />
+                    <Route path='/questions/question-category' element={<QuestionCategory />} />
                     <Route />
                 </Routes>
             </div>
