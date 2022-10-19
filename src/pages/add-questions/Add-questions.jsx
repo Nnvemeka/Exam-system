@@ -3,8 +3,9 @@ import './add-questions.css'
 
 const AddQuestions = () => {
     return (
-        <div className='add-questions'>
-            <main className='add-question--container'>
+        <main className='add-questions'>
+            <div className='add-question--container'>
+                <h4>Add Question</h4>
                 <form className='add-question--form'>
                     <select name="question-category" className="dropdown" id="question-category">
                         <option value="">--Select Category--</option>
@@ -50,8 +51,8 @@ const AddQuestions = () => {
 
                     <button type='button' className="add-question-btn">Save</button>
                 </form>
-            </main>
-        </div>
+            </div>
+        </main>
     )
 }
 

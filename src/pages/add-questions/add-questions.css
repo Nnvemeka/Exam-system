@@ -1,11 +1,13 @@
 .add-questions {
-    margin: 3rem;
+    margin: 4rem;
     color: #555;
 }
 
-.add-question--container {
-    /* background-color: #f6f8fa; */
-    padding: 4rem;
+.add-question--container h4 {
+    text-align: left;
+    color: #999;
+    font-size: 2rem;
+    margin-bottom: 4rem;
 }
 
 .add-question--form {
@@ -36,8 +38,8 @@
 }
 
 .option-checkbox {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 2.4rem;
+    height: 2.4rem;
     accent-color: #b2f2bb;
 }
 
