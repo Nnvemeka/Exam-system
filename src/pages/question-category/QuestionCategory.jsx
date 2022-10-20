@@ -25,19 +25,47 @@ const QuestionCategory = () => {
                         <tbody>
                             <tr>
                                 <th>English</th>
-                                <td>Edit | Delete</td>
+                                <td>
+                                    <button>
+                                        <ion-icon name="create-outline" class="action-icon edit"></ion-icon>
+                                    </button>
+                                    <button>
+                                        <ion-icon name="trash-outline" class="action-icon trash"></ion-icon>
+                                    </button>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Science</th>
-                                <td>Edit | Delete</td>
+                                <td>
+                                    <button>
+                                        <ion-icon name="create-outline" class="action-icon edit"></ion-icon>
+                                    </button>
+                                    <button>
+                                        <ion-icon name="trash-outline" class="action-icon trash"></ion-icon>
+                                    </button>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Technology</th>
-                                <td>Edit | Delete</td>
+                                <td>
+                                    <button>
+                                        <ion-icon name="create-outline" class="action-icon edit"></ion-icon>
+                                    </button>
+                                    <button>
+                                        <ion-icon name="trash-outline" class="action-icon trash"></ion-icon>
+                                    </button>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Math</th>
-                                <td>Edit | Delete</td>
+                                <td>
+                                    <button>
+                                        <ion-icon name="create-outline" class="action-icon edit"></ion-icon>
+                                    </button>
+                                    <button>
+                                        <ion-icon name="trash-outline" class="action-icon trash"></ion-icon>
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
