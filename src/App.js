@@ -1,12 +1,19 @@
 import Layout from "./layout/Layout";
 import { Routes, Route } from "react-router-dom";
-import './app.css'
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import './app.css';
+
+const queryClient = new QueryClient()
 
 function App() {
   return (
-    <Routes>
-      <Route path="*" element={<Layout />}/>
-    </Routes>
+    <QueryClientProvider client={queryClient}>
+      <Routes>
+        <Route path="*" element={<Layout />} />
+      </Routes>
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right"/>
+    </QueryClientProvider>
   );
 }
 
