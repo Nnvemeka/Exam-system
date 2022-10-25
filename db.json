@@ -1,102 +1,150 @@
 {
-    "Categories": [
+  "Categories": [
+    {
+      "id": 1,
+      "description": "English"
+    },
+    {
+      "id": 2,
+      "description": "Science"
+    },
+    {
+      "id": 3,
+      "description": "Technology"
+    },
+    {
+      "id": 4,
+      "description": "Math"
+    },
+    {
+      "description": "Blockchain",
+      "id": 5
+    },
+    {
+      "description": "Book",
+      "id": 6
+    }
+  ],
+  "Questions": [
+    {
+      "id": 1,
+      "categoryId": 1,
+      "type": [
+        "SINGLE CHOICE"
+      ],
+      "instruction": "Tick the correct answer",
+      "text": "Which letter comes before 'N' in the alphabet?",
+      "options": [
+        "O",
+        "L",
+        "M",
+        "P"
+      ],
+      "answer": [
+        "M"
+      ]
+    },
+    {
+      "id": 2,
+      "categoryId": 3,
+      "type": [
+        "SINGLE CHOICE"
+      ],
+      "instruction": "Tick the correct answer",
+      "text": "Which the best programming language?",
+      "options": [
+        "Javascript",
+        "Python",
+        "PHP",
+        "C#"
+      ],
+      "answer": [
+        "Javascript"
+      ]
+    },
+    {
+      "id": 3,
+      "categoryId": 4,
+      "type": [
+        "MULTI CHOICE"
+      ],
+      "instruction": "Tick the correct answers",
+      "text": "Which numbers can divide 12?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "7"
+      ],
+      "answer": [
+        "3",
+        "4"
+      ]
+    },
+    {
+      "id": 4,
+      "categoryId": 2,
+      "type": [
+        "FILL IN THE GAP"
+      ],
+      "instruction": "Fill the correct answer",
+      "text": "Matter is anything that has weight and occupies .....?",
+      "options": [],
+      "answer": [
+        "space"
+      ]
+    }
+  ],
+  "Users": [
+    {
+      "id": 1,
+      "name": "Edward",
+      "email": "Edward@gmail.com",
+      "password": "xxxxxx",
+      "role": "user",
+      "isActive": true,
+      "isVerified": true
+    },
+    {
+      "id": 2,
+      "name": "Precious",
+      "email": "Precious@gmail.com",
+      "password": "oooooo",
+      "role": "admin",
+      "isActive": true,
+      "isVerified": true
+    }
+  ],
+  "Assessments": [
+    {
+      "id": 1,
+      "title": "First Assessment",
+      "description": "",
+      "duration": 2,
+      "numberOfQuestion": 10,
+      "totalMark": 100,
+      "markPerQuestion": 20,
+      "dateTime": 2022,
+      "questionBank": [
         {
-            "id": 1,
-            "description": "English"
-        },
-        {
-            "id": 2,
-            "description": "Science"
-        },
-        {
-            "id": 3,
-            "description": "Technology"
-        },
-        {
-            "id": 4,
-            "description": "Math"
+          "categoryId": 1
         }
-    ],
-    "Questions": [
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Second Assessment",
+      "description": "",
+      "duration": 1,
+      "numberOfQuestion": 5,
+      "totalMark": 50,
+      "markPerQuestion": 10,
+      "dateTime": 2022,
+      "questionBank": [
         {
-            "id": 1,
-            "categoryId": 1,
-            "type": ["SINGLE CHOICE"],
-            "instruction": "Tick the correct answer",
-            "text": "Which letter comes before 'N' in the alphabet?",
-            "options": ["O", "L", "M", "P"],
-            "answer": ["M"]
-        },
-        {
-            "id": 2,
-            "categoryId": 3,
-            "type": ["SINGLE CHOICE"],
-            "instruction": "Tick the correct answer",
-            "text": "Which the best programming language?",
-            "options": ["Javascript", "Python", "PHP", "C#"],
-            "answer": ["Javascript"]
-        },
-        {
-            "id": 3,
-            "categoryId": 4,
-            "type": ["MULTI CHOICE"],
-            "instruction": "Tick the correct answers",
-            "text": "Which numbers can divide 12?",
-            "options": ["3", "4", "5", "7"],
-            "answer": ["3", "4"]
-        },
-        {
-            "id": 4,
-            "categoryId": 2,
-            "type": ["FILL IN THE GAP"],
-            "instruction": "Fill the correct answer",
-            "text": "Matter is anything that has weight and occupies .....?",
-            "options": [],
-            "answer": ["space"]
+          "categoryId": 3
         }
-    ],
-    "Users": [
-        {
-            "id": 1,
-            "name": "Edward",
-            "email": "Edward@gmail.com",
-            "password": "xxxxxx",
-            "role": "user",
-            "isActive": true,
-            "isVerified": true
-        },
-        {
-            "id": 2,
-            "name": "Precious",
-            "email": "Precious@gmail.com",
-            "password": "oooooo",
-            "role": "admin",
-            "isActive": true,
-            "isVerified": true
-        }
-    ],
-    "Assessments": [
-        {
-            "id": 1,
-            "title": "First Assessment",
-            "description": "",
-            "duration": 2,
-            "numberOfQuestion": 10,
-            "totalMark": 100,
-            "markPerQuestion": 20,
-            "dateTime": 2022,
-            "questionBank": [{"categoryId": 1}]
-        },
-        {
-            "id": 2,
-            "title": "Second Assessment",
-            "description": "",
-            "duration": 1,
-            "numberOfQuestion": 5,
-            "totalMark": 50,
-            "markPerQuestion": 10,
-            "dateTime": 2022,
-            "questionBank": [{"categoryId": 3}]
-        }
-    ]
+      ]
+    }
+  ]
 }

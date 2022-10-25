@@ -107,3 +107,12 @@ td button {
 .trash {
     color: red;
 }
+
+.cat-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 50vh;
+    color: #40c057;
+}
