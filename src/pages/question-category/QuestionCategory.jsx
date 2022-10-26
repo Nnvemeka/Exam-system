@@ -1,22 +1,37 @@
 import React, { useState } from 'react'
 import { useAddCategoriesData, useCategoriesData } from '../../hooks/useCategories'
+import ReactModal from 'react-modal'
 import './questionCategory.css'
 
 const QuestionCategory = () => {
-    const [category, setCategory] = useState('')
+    const [category, setCategory] = useState('');
+    const [onEditModal, setOnEditModal] = useState(false);
+    const [onDeleteModal, setOnDeleteModal] = useState(false);
 
     const { isLoading, data } = useCategoriesData()
-    const {mutate: addCatergory} = useAddCategoriesData()
+    const { mutate: addCategory } = useAddCategoriesData()
+
+    const openEditModal = () => {
+        setOnEditModal(true)
+    }
+
+    const closeEditModal = () => {
+        setOnEditModal(false)
+    }
+
+    const openDeleteModal = () => {
+        setOnDeleteModal(true)
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        addCatergory({description: category})
+        addCategory({ description: category })
 
         e.target.reset()
     }
 
     if (isLoading) {
-        return <h4 className='cat-loading'>Loading...</h4>
+        return <h4 className='loading'>Loading...</h4>
     }
 
     return (
@@ -40,17 +55,19 @@ const QuestionCategory = () => {
                         </thead>
 
                         <tbody>
-                            {data?.data.map((cat, i) => {
+                            {data?.data.map(({ id, description }) => {
                                 return (
-                                    <tr key={i}>
-                                        <th>{cat.description}</th>
+                                    <tr key={id}>
+                                        <th>{description}</th>
                                         <td>
-                                            <button>
-                                                <ion-icon name="create-outline" class="action-icon edit"></ion-icon>
-                                            </button>
-                                            <button>
-                                                <ion-icon name="trash-outline" class="action-icon trash"></ion-icon>
-                                            </button>
+                                            <div className='btn-container'>
+                                                <button onClick={openEditModal}>
+                                                    <ion-icon name="create-outline" class="action-icon edit"></ion-icon>
+                                                </button>
+                                                <button>
+                                                    <ion-icon name="trash-outline" class="action-icon trash"></ion-icon>
+                                                </button>
+                                            </div>
                                         </td>
                                     </tr>
                                 )
@@ -59,6 +76,48 @@ const QuestionCategory = () => {
                     </table>
                 </div>
             </div>
+            <ReactModal
+                isOpen={onEditModal}
+                onRequestClose={closeEditModal}
+                contentLabel="Edit Category"
+                ariaHideApp={false}
+                closeTimeoutMS={200}
+                className="modal"
+                style={{
+                    overlay: {
+                      position: 'fixed',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      backgroundColor: 'rgba(255, 255, 255, 0.75)'
+                    },
+                    content: {
+                      position: 'absolute',
+                      top: '25%',
+                      left: '40%',
+                      right: '20%',
+                      bottom: '46%',
+                      border: '1px solid #ccc',
+                      background: '#b2f2bb',
+                      overflow: 'auto',
+                      WebkitOverflowScrolling: 'touch',
+                      borderRadius: '4px',
+                      outline: 'none',
+                      padding: '20px'
+                    }
+                  }}
+            >
+                <div className="modal-header">
+                    <h2>Edit Category</h2>
+                    <span onClick={closeEditModal}>x</span>
+                </div>
+                <input type="text" className='modal-input'/>
+                <div className="modal-button">
+                    <button className='modal-update-btn'>Update</button>
+                    <button className='modal-cancel-btn'>Cancel</button>
+                </div>
+            </ReactModal>
         </main>
     )
 }
