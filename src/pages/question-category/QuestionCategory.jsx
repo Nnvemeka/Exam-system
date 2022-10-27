@@ -30,6 +30,11 @@ const QuestionCategory = () => {
         e.target.reset()
     }
 
+    const handleEdit = (e, id) => {
+        e.preventDefault()
+        console.log(id)
+    }
+
     if (isLoading) {
         return <h4 className='loading'>Loading...</h4>
     }
@@ -76,49 +81,25 @@ const QuestionCategory = () => {
                     </table>
                 </div>
             </div>
-            <ReactModal
+            < ReactModal
                 isOpen={onEditModal}
                 onRequestClose={closeEditModal}
                 contentLabel="Edit Category"
                 ariaHideApp={false}
                 closeTimeoutMS={200}
                 className="modal"
-                style={{
-                    overlay: {
-                      position: 'fixed',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      backgroundColor: 'rgba(255, 255, 255, 0.75)'
-                    },
-                    content: {
-                      position: 'absolute',
-                      top: '25%',
-                      left: '40%',
-                      right: '20%',
-                      bottom: '46%',
-                      border: '1px solid #ccc',
-                      background: '#b2f2bb',
-                      overflow: 'auto',
-                      WebkitOverflowScrolling: 'touch',
-                      borderRadius: '4px',
-                      outline: 'none',
-                      padding: '20px'
-                    }
-                  }}
             >
                 <div className="modal-header">
                     <h2>Edit Category</h2>
                     <span onClick={closeEditModal}>x</span>
                 </div>
-                <input type="text" className='modal-input'/>
+                <input type="text" className='modal-input' />
                 <div className="modal-button">
                     <button className='modal-update-btn'>Update</button>
                     <button className='modal-cancel-btn'>Cancel</button>
                 </div>
             </ReactModal>
-        </main>
+        </main >
     )
 }
 
