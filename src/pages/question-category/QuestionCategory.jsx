@@ -23,6 +23,10 @@ const QuestionCategory = () => {
         setOnDeleteModal(true)
     }
 
+    const closeDeleteModal = () => {
+        setOnDeleteModal(false)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         addCategory({ description: category })
@@ -69,7 +73,7 @@ const QuestionCategory = () => {
                                                 <button onClick={openEditModal}>
                                                     <ion-icon name="create-outline" class="action-icon edit"></ion-icon>
                                                 </button>
-                                                <button>
+                                                <button onClick={openDeleteModal}>
                                                     <ion-icon name="trash-outline" class="action-icon trash"></ion-icon>
                                                 </button>
                                             </div>
@@ -81,6 +85,7 @@ const QuestionCategory = () => {
                     </table>
                 </div>
             </div>
+            {/* Edit category modal */}
             < ReactModal
                 isOpen={onEditModal}
                 onRequestClose={closeEditModal}
@@ -96,6 +101,26 @@ const QuestionCategory = () => {
                 <input type="text" className='modal-input' />
                 <div className="modal-button">
                     <button className='modal-update-btn'>Update</button>
+                    <button className='modal-cancel-btn'>Cancel</button>
+                </div>
+            </ReactModal>
+
+            {/* Delete category modal */}
+            < ReactModal
+                isOpen={onDeleteModal}
+                onRequestClose={closeDeleteModal}
+                contentLabel="Edit Category"
+                ariaHideApp={false}
+                closeTimeoutMS={200}
+                className="modal"
+            >
+                <div className="modal-header">
+                    <h2>Delete Category</h2>
+                    <span onClick={closeDeleteModal}>x</span>
+                </div>
+                <span className='msg'>Are you sure you want to delete this category?</span>
+                <div className="modal-button">
+                    <button className='modal-update-btn'>Confirm</button>
                     <button className='modal-cancel-btn'>Cancel</button>
                 </div>
             </ReactModal>

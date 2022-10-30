@@ -168,6 +168,10 @@ td button {
     margin-bottom: 2rem;
 }
 
+.msg {
+    font-size: 2rem;
+}
+
 .modal-input {
     width: 100%;
     padding: 1rem;
