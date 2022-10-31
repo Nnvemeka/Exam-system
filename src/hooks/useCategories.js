@@ -1,5 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+// Query functions
 
 const fetchCategories = () => {
     return axios.get('http://localhost:4000/Categories')
@@ -9,8 +12,37 @@ const addCategory = (cat) => {
     return axios.post('http://localhost:4000/Categories', cat)
 }
 
+const getCategory = (id) => {
+    return axios.get(`http://localhost:4000/Categories/${id}`)
+}
+
+const updateCategory = ({ id, ...cat }) => {
+    console.log(id)
+    return axios.put(`http://localhost:4000/Categories/${id}`, cat)
+}
+
+// Query hooks
 export const useCategoriesData = () => {
     return useQuery(['categories'], fetchCategories)
+}
+
+export const useGetCategoryData = (id) => {
+    return useQuery(['category', id], () => getCategory(id))
+}
+
+export const useUpdateCategoryData = (id) => {
+    const queryClient = useQueryClient()
+    const navigate = useNavigate()
+
+    return useMutation(updateCategory, {
+        onSuccess: (data) => {
+            queryClient.setQueryData(['category', id], data)
+            queryClient.invalidateQueries(['categories'])
+            setTimeout(() => {
+                navigate(-1)
+            }, 3000)
+        }
+    })
 }
 
 export const useAddCategoriesData = () => {
