@@ -2,22 +2,15 @@ import React, { useState } from 'react'
 import { useAddCategoriesData, useCategoriesData } from '../../hooks/useCategories'
 import ReactModal from 'react-modal'
 import './questionCategory.css'
+import { Link } from 'react-router-dom'
 
 const QuestionCategory = () => {
     const [category, setCategory] = useState('');
-    const [onEditModal, setOnEditModal] = useState(false);
+    const [id, setId] = useState('');
     const [onDeleteModal, setOnDeleteModal] = useState(false);
 
     const { isLoading, data } = useCategoriesData()
     const { mutate: addCategory } = useAddCategoriesData()
-
-    const openEditModal = () => {
-        setOnEditModal(true)
-    }
-
-    const closeEditModal = () => {
-        setOnEditModal(false)
-    }
 
     const openDeleteModal = () => {
         setOnDeleteModal(true)
@@ -34,10 +27,6 @@ const QuestionCategory = () => {
         e.target.reset()
     }
 
-    const handleEdit = (e, id) => {
-        e.preventDefault()
-        console.log(id)
-    }
 
     if (isLoading) {
         return <h4 className='loading'>Loading...</h4>
@@ -64,21 +53,29 @@ const QuestionCategory = () => {
                         </thead>
 
                         <tbody>
-                            {data?.data.map(({ id, description }) => {
+                            {data?.data.map((cat) => {
                                 return (
-                                    <tr key={id}>
-                                        <th>{description}</th>
-                                        <td>
-                                            <div className='btn-container'>
-                                                <button onClick={openEditModal}>
-                                                    <ion-icon name="create-outline" class="action-icon edit"></ion-icon>
-                                                </button>
-                                                <button onClick={openDeleteModal}>
-                                                    <ion-icon name="trash-outline" class="action-icon trash"></ion-icon>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <>
+                                        <tr key={cat.id}>
+                                            <th>{cat.description}</th>
+                                            <td>
+                                                <div className='btn-container'>
+                                                    <button>
+                                                        <Link to={`/question-category/edit/${cat.id}`}>
+                                                            <ion-icon name="create-outline" class="action-icon edit"></ion-icon>
+                                                        </Link>
+                                                    </button>
+                                                    <button onClick={() => {
+                                                        openDeleteModal();
+                                                        setId(cat.id);
+                                                    }}>
+                                                        <ion-icon name="trash-outline" class="action-icon trash"></ion-icon>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {/* <EditCategoryModal cat={cat.id} onEditModal={onEditModal} closeEditModal={closeEditModal} /> */}
+                                    </>
                                 )
                             })}
                         </tbody>
@@ -86,7 +83,7 @@ const QuestionCategory = () => {
                 </div>
             </div>
             {/* Edit category modal */}
-            < ReactModal
+            {/* < ReactModal
                 isOpen={onEditModal}
                 onRequestClose={closeEditModal}
                 contentLabel="Edit Category"
@@ -103,7 +100,7 @@ const QuestionCategory = () => {
                     <button className='modal-update-btn'>Update</button>
                     <button className='modal-cancel-btn'>Cancel</button>
                 </div>
-            </ReactModal>
+            </ReactModal> */}
 
             {/* Delete category modal */}
             < ReactModal
