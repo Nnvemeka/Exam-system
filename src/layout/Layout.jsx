@@ -9,6 +9,7 @@ import AddQuestions from '../pages/add-questions/Add-questions'
 import './layout.css'
 import QuestionBank from '../pages/question-bank/QuestionBank'
 import QuestionCategory from '../pages/question-category/QuestionCategory'
+import EditQuestionCat from '../pages/question-category/edit-question-category/EditQuestionCat'
 
 const layout = () => {
     return (
@@ -28,7 +29,7 @@ const layout = () => {
                     <Route path='/questions/add-questions' element={<AddQuestions />} />
                     <Route path='/questions/question-bank' element={<QuestionBank />} />
                     <Route path='/questions/question-category' element={<QuestionCategory />} />
-                    <Route />
+                    <Route path='/question-category/edit/:id' element={<EditQuestionCat/>}/>
                 </Routes>
             </div>
             <div className='footer-container'>
