@@ -32,15 +32,12 @@ export const useGetCategoryData = (id) => {
 
 export const useUpdateCategoryData = (id) => {
     const queryClient = useQueryClient()
-    const navigate = useNavigate()
 
     return useMutation(updateCategory, {
         onSuccess: (data) => {
             queryClient.setQueryData(['category', id], data)
             queryClient.invalidateQueries(['categories'])
-            setTimeout(() => {
-                navigate(-1)
-            }, 3000)
+            
         }
     })
 }

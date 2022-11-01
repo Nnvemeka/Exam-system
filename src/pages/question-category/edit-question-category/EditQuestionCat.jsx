@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useGetCategoryData, useUpdateCategoryData } from '../../../hooks/useCategories'
 // import { useQueryClient } from '@tanstack/react-query'
 
 
 const EditQuestionCat = () => {
+    const navigate = useNavigate()
+
     const { id } = useParams()
 
     const { isLoading: getCat, isFetching, data } = useGetCategoryData(id)
@@ -22,6 +24,10 @@ const EditQuestionCat = () => {
         mutate(cat)
     }
 
+    const goBack = () => {
+        navigate(-1)
+    }
+
     if (getCat && isFetching) {
         <h2 className='loading'>Loading...</h2>
     }
@@ -32,10 +38,11 @@ const EditQuestionCat = () => {
                 <>
                     {isLoading ? ('Updating category...') : (
                         <>
-                            <h4>Edit Category</h4>
+                            <h4>Edit Category</h4> 
+                            <button onClick={goBack}>Go back</button>
                             {isError ? <div>An errror occurred: {error.message}</div> : null}
                             {isSuccess ? <div>Category updated!</div> : null}
-                            <input type='text' name="description" placeholder={data?.data.description} onChange={handleChange} />
+                            <input type='text' name="description" value={cat.description} onChange={handleChange} />
                             <button onClick={handleUpdate}>Update</button>
                         </>
                     )}
