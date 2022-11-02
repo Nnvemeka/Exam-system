@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useGetCategoryData, useUpdateCategoryData } from '../../../hooks/useCategories'
-// import { useQueryClient } from '@tanstack/react-query'
 
 
 const EditQuestionCat = () => {
@@ -11,9 +10,10 @@ const EditQuestionCat = () => {
 
     const { isLoading: getCat, isFetching, data } = useGetCategoryData(id)
     const { mutate, isLoading, isSuccess, isError, error } = useUpdateCategoryData(data?.data)
+    
     const category = data?.data
-    const [cat, setCat] = useState({ ...category })
-
+    const [cat, setCat] = useState({...category})
+ 
     const handleChange = (e) => {
         const { name, value } = e.target
         setCat({ id, ...cat, [name]: value })
@@ -34,15 +34,15 @@ const EditQuestionCat = () => {
 
     return (
         <main className='editQuestionCat'>
-            {getCat ? <h2 className='loading'>Loading...</h2> : (
+            {getCat && isFetching ? <h2 className='loading'>Loading...</h2> : (
                 <>
                     {isLoading ? ('Updating category...') : (
                         <>
                             <h4>Edit Category</h4> 
                             <button onClick={goBack}>Go back</button>
-                            {isError ? <div>An errror occurred: {error.message}</div> : null}
-                            {isSuccess ? <div>Category updated!</div> : null}
-                            <input type='text' name="description" value={cat.description} onChange={handleChange} />
+                            {isError && <div>An errror occurred: {error.message}</div>}
+                            {isSuccess && <div>Category updated!</div>}
+                            <input type='text' name="description" placeholder={category.description} onChange={handleChange} />
                             <button onClick={handleUpdate}>Update</button>
                         </>
                     )}

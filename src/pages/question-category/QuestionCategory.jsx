@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useAddCategoriesData, useCategoriesData } from '../../hooks/useCategories'
+import { useAddCategoriesData, useCategoriesData, useDeleteCategoryData } from '../../hooks/useCategories'
 import ReactModal from 'react-modal'
 import './questionCategory.css'
 import { Link } from 'react-router-dom'
@@ -11,14 +11,10 @@ const QuestionCategory = () => {
 
     const { isLoading, data } = useCategoriesData()
     const { mutate: addCategory } = useAddCategoriesData()
+    const { mutate: delCategory } = useDeleteCategoryData()
 
-    const openDeleteModal = () => {
-        setOnDeleteModal(true)
-    }
-
-    const closeDeleteModal = () => {
-        setOnDeleteModal(false)
-    }
+    const openDeleteModal = () => setOnDeleteModal(true)
+    const closeDeleteModal = () => setOnDeleteModal(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -74,7 +70,6 @@ const QuestionCategory = () => {
                                                 </div>
                                             </td>
                                         </tr>
-                                        {/* <EditCategoryModal cat={cat.id} onEditModal={onEditModal} closeEditModal={closeEditModal} /> */}
                                     </>
                                 )
                             })}
@@ -82,25 +77,6 @@ const QuestionCategory = () => {
                     </table>
                 </div>
             </div>
-            {/* Edit category modal */}
-            {/* < ReactModal
-                isOpen={onEditModal}
-                onRequestClose={closeEditModal}
-                contentLabel="Edit Category"
-                ariaHideApp={false}
-                closeTimeoutMS={200}
-                className="modal"
-            >
-                <div className="modal-header">
-                    <h2>Edit Category</h2>
-                    <span onClick={closeEditModal}>x</span>
-                </div>
-                <input type="text" className='modal-input' />
-                <div className="modal-button">
-                    <button className='modal-update-btn'>Update</button>
-                    <button className='modal-cancel-btn'>Cancel</button>
-                </div>
-            </ReactModal> */}
 
             {/* Delete category modal */}
             < ReactModal
@@ -117,8 +93,8 @@ const QuestionCategory = () => {
                 </div>
                 <span className='msg'>Are you sure you want to delete this category?</span>
                 <div className="modal-button">
-                    <button className='modal-update-btn'>Confirm</button>
-                    <button className='modal-cancel-btn'>Cancel</button>
+                    <button className='modal-update-btn' onClick={()=> {delCategory(id); closeDeleteModal()}}>Confirm</button>
+                    <button className='modal-cancel-btn' onClick={closeDeleteModal}>Cancel</button>
                 </div>
             </ReactModal>
         </main >

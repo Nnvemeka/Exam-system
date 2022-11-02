@@ -17,8 +17,11 @@ const getCategory = (id) => {
 }
 
 const updateCategory = ({ id, ...cat }) => {
-    console.log(id)
     return axios.put(`http://localhost:4000/Categories/${id}`, cat)
+}
+
+const deleteCategory = (id) => {
+    return axios.delete(`http://localhost:4000/Categories/${id}`)
 }
 
 // Query hooks
@@ -32,12 +35,23 @@ export const useGetCategoryData = (id) => {
 
 export const useUpdateCategoryData = (id) => {
     const queryClient = useQueryClient()
+    const navigate = useNavigate()
 
     return useMutation(updateCategory, {
         onSuccess: (data) => {
             queryClient.setQueryData(['category', id], data)
             queryClient.invalidateQueries(['categories'])
-            
+            navigate(-1)
+        }
+    })
+}
+
+export const useDeleteCategoryData = (id) => {
+    const queryClient = useQueryClient()
+
+    return useMutation(deleteCategory, {
+        onSuccess: () => {
+            queryClient.invalidateQueries(['categories'])
         }
     })
 }
