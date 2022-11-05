@@ -17,6 +17,29 @@ export const useQuestionsData = () => {
     return useQuery(['questions'], getQuestions)
 }
 
+
 export const useAddQuestionData = () => {
-    return useMutation(addQuestion)
+    const queryClient = useQueryClient()
+    return useMutation(addQuestion, {
+        onMutate: async (newQuestion) => {
+            await queryClient.cancelQueries(['questions'])
+            const previousQuestionsData = queryClient.getQueryData(['questions'])
+            queryClient.setQueryData(['questions'], (oldData) => {
+                return {
+                    ...oldData,
+                    newQuestion
+                }
+            })
+
+            return {
+                previousQuestionsData
+            }
+        },
+        onError: (_err, _questions, context) => {
+            queryClient.setQueryData(['questions'], context.previousQuestionsData)
+        },
+        onSettled: () => {
+            queryClient.invalidateQueries(['questions'])
+        }
+    })
 }
