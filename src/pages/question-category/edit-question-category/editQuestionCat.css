@@ -1,0 +1,51 @@
+.editQuestionCat {
+    margin: 4rem;
+    color: #555;
+}
+
+.editQuestionCat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+
+h4 {
+    color: #999;
+    font-size: 2rem;
+}
+
+.editQuestionCat-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.editQuestionCat input{
+    width: 50%;
+    padding: 1rem;
+    font-size: 1.4rem;
+    font-family: inherit;
+    color: inherit;
+    border: none;
+    background-color: #f0fcf2;
+    border-radius: 9px;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+}
+
+
+.editQuestionCat-btn {
+    width: 20%;
+    background-color: #b2f2bb;
+    color: #555;
+    padding: 1.2rem;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.editQuestionCat-btn:hover {
+    background-color: #8ce99a;
+    color: #555;
+}
