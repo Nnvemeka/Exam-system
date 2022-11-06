@@ -13,6 +13,11 @@ body {
     /* font-weight: 400; */
 }
 
+input *:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(173, 247, 177, 0.959);
+}
+
 ion-icon {
     pointer-events: none;
 }
@@ -23,5 +28,16 @@ ion-icon {
     align-items: center;
     text-align: center;
     min-height: 50vh;
+    color: #40c057;
+}
+
+.go-back-btn {
+    color: #555;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.go-back-btn:hover {
     color: #40c057;
 }
