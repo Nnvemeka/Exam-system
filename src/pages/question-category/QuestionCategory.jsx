@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useAddCategoriesData, useCategoriesData, useDeleteCategoryData } from '../../hooks/useCategories'
 import ReactModal from 'react-modal'
+import { Link, useNavigate } from 'react-router-dom'
 import './questionCategory.css'
-import { Link } from 'react-router-dom'
 
 const QuestionCategory = () => {
+    const navigate = useNavigate()
     const [category, setCategory] = useState('');
     const [id, setId] = useState('');
     const [onDeleteModal, setOnDeleteModal] = useState(false);
@@ -31,6 +32,7 @@ const QuestionCategory = () => {
     return (
         <main className="question-category">
             <div className="question-category--container">
+
                 <div className="add-category">
                     <h4>Add New Category</h4>
                     <form className='addCatergory-form' onSubmit={handleSubmit}>
@@ -39,7 +41,11 @@ const QuestionCategory = () => {
                     </form>
                 </div>
                 <div className="category-list">
-                    <h4>Category List</h4>
+                    <div className="category-list--header">
+                        <h5 className="category-list--title">Category List</h5>
+                        <button onClick={() => navigate(-1)} className='go-back-btn'>&larr; Go back</button>
+                    </div>
+
                     <table>
                         <thead>
                             <tr>
@@ -93,7 +99,7 @@ const QuestionCategory = () => {
                 </div>
                 <span className='msg'>Are you sure you want to delete this category?</span>
                 <div className="modal-button">
-                    <button className='modal-update-btn' onClick={()=> {delCategory(id); closeDeleteModal()}}>Confirm</button>
+                    <button className='modal-update-btn' onClick={() => { delCategory(id); closeDeleteModal() }}>Confirm</button>
                     <button className='modal-cancel-btn' onClick={closeDeleteModal}>Cancel</button>
                 </div>
             </ReactModal>

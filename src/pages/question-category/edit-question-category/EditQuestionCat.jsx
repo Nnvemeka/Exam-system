@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useGetCategoryData, useUpdateCategoryData } from '../../../hooks/useCategories'
+import './editQuestionCat.css'
 
 
 const EditQuestionCat = () => {
@@ -10,10 +11,10 @@ const EditQuestionCat = () => {
 
     const { isLoading: getCat, isFetching, data } = useGetCategoryData(id)
     const { mutate, isLoading, isSuccess, isError, error } = useUpdateCategoryData(data?.data)
-    
+
     const category = data?.data
-    const [cat, setCat] = useState({...category})
- 
+    const [cat, setCat] = useState({ ...category })
+
     const handleChange = (e) => {
         const { name, value } = e.target
         setCat({ id, ...cat, [name]: value })
@@ -38,12 +39,17 @@ const EditQuestionCat = () => {
                 <>
                     {isLoading ? ('Updating category...') : (
                         <>
-                            <h4>Edit Category</h4> 
-                            <button onClick={goBack}>Go back</button>
+                            <div className="editQuestionCat-header">
+                                <h4>Edit Category</h4>
+                                <button className='go-back-btn' onClick={goBack}>&larr; Go back</button>
+                            </div>
                             {isError && <div>An errror occurred: {error.message}</div>}
                             {isSuccess && <div>Category updated!</div>}
-                            <input type='text' name="description" placeholder={category.description} onChange={handleChange} />
-                            <button onClick={handleUpdate}>Update</button>
+
+                            <div className='editQuestionCat-form'>
+                                <input type='text' name="description" placeholder={category.description} onChange={handleChange} />
+                                <button className='editQuestionCat-btn' onClick={handleUpdate}>Update</button>
+                            </div>
                         </>
                     )}
                 </>
