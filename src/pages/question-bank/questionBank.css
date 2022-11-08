@@ -41,11 +41,13 @@ h3 {
 
 .view {
     color: #555;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     background-color: #b2f2bb;
     border-radius: 9px;
+    border: none;
     padding: 1.2rem;
     cursor: pointer;
+    text-decoration: none;
     transition: all 0.3s;
 }
 
