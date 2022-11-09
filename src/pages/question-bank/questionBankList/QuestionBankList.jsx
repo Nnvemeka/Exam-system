@@ -5,9 +5,13 @@ import { useQuestionsData } from '../../../hooks/useQuestions'
 const QuestionBankList = () => {
     const { id } = useParams()
 
-    const { data: question } = useQuestionsData()
+    const { data: question, isLoading, isFetching } = useQuestionsData()
 
     const listOfQuestions = question?.data.filter((ques) => ques.categoryId === Number(id))
+
+    if (isLoading && isFetching) {
+        return <div className='loading'>Loading...</div>
+    }
 
     return (
         <main>

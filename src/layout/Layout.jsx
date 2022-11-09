@@ -21,7 +21,7 @@ const layout = () => {
             <div className='nav-container'>
                 <Nav />
             </div>
-            <div className='main-container'>
+            <div className='main-container' style={{overflowY: 'auto'}}>
                 <Routes>
                     <Route path='/' element={<Dashboard />} />
 
