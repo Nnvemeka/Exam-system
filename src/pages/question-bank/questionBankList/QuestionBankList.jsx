@@ -14,22 +14,22 @@ const QuestionBankList = () => {
     }
 
     return (
-        <main>
+        <main className='questionBankList'>
             <h3>Number of questions: {listOfQuestions.length}</h3>
             {
                 listOfQuestions.map((question, i) => (
-                    <div key={i} style={{marginBottom: '30px'}}>
-                        <h4>Title: {question.text}</h4>
+                    <div key={i} className="questionBankList--container">
+                        <h4 className='questionBankList--title'>Title: {question.text}</h4>
                         {question.type.map((t, i) => (
-                            <p key={i}>Type: {t}</p>
+                            <p key={i} className="questionBankList--type">Type: {t}</p>
                         ))}
 
                         {question.options.map((o, i) => (
-                            <p key={i}>Option {i + 1}: {o}</p>
+                            <p key={i} className="questionBankList--option">Option {i + 1}: {o}</p>
                         ))}
 
                         {question.answer.map((a, i) => (
-                            <p key={i}>Answer: {a}</p>
+                            <p key={i} className="questionBankList--answer">Answer: {a}</p>
                         ))}
                     </div>
 
