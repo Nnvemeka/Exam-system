@@ -3,22 +3,49 @@
     color: #555;
 }
 
-.questionBankList--container {
 
+.questionBankList--container {
+    background-color: #f0fcf2;
+    color: #999;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.questionBankList--index {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.questionBankList--items {
+    padding: 0 5rem;
+    text-align: left;
 }
 
 .questionBankList--title {
-
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
 }
 
 .questionBankList--type {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
 
+.questionBankList--option-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 3.2rem;
+    margin-bottom: 2rem;
 }
 
 .questionBankList--option {
-
+    font-size: 2rem;
 }
 
 .questionBankList--answer {
+    font-size: 2rem;
+}
 
+.questionBankList span {
+    color: #333;
 }

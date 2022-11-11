@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuestionsData } from '../../../hooks/useQuestions'
+import './questionBankList.css'
 
 const QuestionBankList = () => {
     const { id } = useParams()
@@ -19,18 +20,23 @@ const QuestionBankList = () => {
             {
                 listOfQuestions.map((question, i) => (
                     <div key={i} className="questionBankList--container">
-                        <h4 className='questionBankList--title'>Title: {question.text}</h4>
-                        {question.type.map((t, i) => (
-                            <p key={i} className="questionBankList--type">Type: {t}</p>
-                        ))}
+                        <h2 className='questionBankList--index'>{i + 1}.</h2>
+                        <div className="questionBankList--items">
+                            <p className='questionBankList--title'><span>Question:</span> {question.text}</p>
+                            {question.type.map((t, i) => (
+                                <p key={i} className="questionBankList--type"><span>Type:</span> {t}</p>
+                            ))}
 
-                        {question.options.map((o, i) => (
-                            <p key={i} className="questionBankList--option">Option {i + 1}: {o}</p>
-                        ))}
+                            <div className="questionBankList--option-container">
+                                {question.options.map((o, i) => (
+                                    <p key={i} className="questionBankList--option"><span>Option{i + 1}:</span> {o}</p>
+                                ))}
+                            </div>
 
-                        {question.answer.map((a, i) => (
-                            <p key={i} className="questionBankList--answer">Answer: {a}</p>
-                        ))}
+                            {question.answer.map((a, i) => (
+                                <p key={i} className="questionBankList--answer"><span>Answer:</span> {a}</p>
+                            ))}
+                        </div>
                     </div>
 
                 ))

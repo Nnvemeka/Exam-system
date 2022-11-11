@@ -22,7 +22,7 @@
       "id": 1,
       "categoryId": 1,
       "type": [
-        "SINGLE CHOICE"
+        "single choice"
       ],
       "instruction": "Tick the correct answer",
       "text": "Which letter comes before 'N' in the alphabet?",
@@ -40,7 +40,7 @@
       "id": 2,
       "categoryId": 3,
       "type": [
-        "SINGLE CHOICE"
+        "single choice"
       ],
       "instruction": "Tick the correct answer",
       "text": "Which the best programming language?",
