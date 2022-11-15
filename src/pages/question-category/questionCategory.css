@@ -86,10 +86,10 @@ td {
 
 thead tr {
     background-color: #b2f2bb;
-    color: #555;
+    color: #777;
 }
 
-thead th {
+.stretch {
     width: 75%;
 }
 
@@ -139,12 +139,13 @@ td button {
     right: 0;
     bottom: 0;
     transition: opacity 200ms ease-in-out;
-    background-Color: rgba(255, 255, 255, 0.75);
+    background-Color: #ccc;
 }
 
 
 .ReactModalPortal .ReactModal__Overlay--after-open {
     opacity: 1;
+    background-color: black;
 }
 
 .ReactModalPortal .ReactModal__Overlay--before-close {

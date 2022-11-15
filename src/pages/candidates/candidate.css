@@ -1,0 +1,11 @@
+.candidate {
+    margin: 4rem;
+    color: #555;
+}
+
+.candidate h4 {
+    text-align: left;
+    color: #999;
+    font-size: 2rem;
+    margin-bottom: 3.6rem;
+}

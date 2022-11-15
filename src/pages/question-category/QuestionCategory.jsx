@@ -49,7 +49,7 @@ const QuestionCategory = () => {
                     <table>
                         <thead>
                             <tr>
-                                <th>Category</th>
+                                <th className='stretch'>Category</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
