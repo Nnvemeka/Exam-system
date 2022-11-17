@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactModal from 'react-modal';
+import { useUsers } from '../../hooks/useUsers';
 import './candidate.css'
 
 const Candidates = () => {
@@ -11,6 +12,10 @@ const Candidates = () => {
 
     const openDeleteModal = () => setOnDeleteModal(true)
     const closeDeleteModal = () => setOnDeleteModal(false)
+
+    const { data, isLoading } = useUsers()
+
+    if (isLoading) return <div className="loading">Loading...</div>
 
 
     return (
@@ -29,29 +34,30 @@ const Candidates = () => {
                     </thead>
 
                     <tbody>
+                        {data?.data.map((user, i) => (
+                            <tr >
+                                <td>{i + 1}</td>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <td>{user.role}</td>
+                                <td>
+                                    <div className='btn-container'>
+                                        <button onClick={() => {
+                                            openEditModal()
 
-                        <tr >
-                            <td>1</td>
-                            <td>Prime</td>
-                            <td>Prime@gmail.com</td>
-                            <td>User</td>
-                            <td>
-                                <div className='btn-container'>
-                                    <button onClick={() => {
-                                        openEditModal()
-                                    }}>
-                                        <ion-icon name="create-outline" class="action-icon edit"></ion-icon>
-                                    </button>
-                                    <button onClick={() => {
-                                        openDeleteModal();
-                                        // setId(cat.id);
-                                    }}>
-                                        <ion-icon name="trash-outline" class="action-icon trash"></ion-icon>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-
+                                        }}>
+                                            <ion-icon name="create-outline" class="action-icon edit"></ion-icon>
+                                        </button>
+                                        <button onClick={() => {
+                                            openDeleteModal();
+                                            // setId(cat.id);
+                                        }}>
+                                            <ion-icon name="trash-outline" class="action-icon trash"></ion-icon>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </section>
@@ -63,15 +69,15 @@ const Candidates = () => {
                 contentLabel="Edit Candidate"
                 ariaHideApp={false}
                 closeTimeoutMS={200}
-                className="modal"
+                className="candidateModal"
             >
                 <div className="modal-header">
                     <h2>Edit Candidate</h2>
                     <span onClick={closeEditModal}>x</span>
                 </div>
                 <div className="editInputs">
-                    <input type="text" className='editInput'/>
-                    <input type="text" className='editInput'/>
+                    <input type="text" className='editInput' />
+                    <input type="text" className='editInput' />
                 </div>
                 <div className="modal-button">
                     <button className='modal-update-btn' >Confirm</button>
